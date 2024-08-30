@@ -3,7 +3,7 @@ import cors from 'cors';
 import rootRouter from './routes/root.router.js';
 import evnConfig from './config/envConfig.js';
 
-const { port } = evnConfig;
+const { portServer } = evnConfig;
 const app = express();
 
 // Middleware
@@ -13,6 +13,6 @@ app.use(rootRouter);          // Kêt nối với router chính
 
 // Khởi tạo server với port: 8080 (default)
 app.listen(
-  port,
-  () => console.log(`Server is running: http://localhost:${port}`)
+  portServer,
+  () => console.log(`Server is running: http://localhost:${portServer}`)
 );

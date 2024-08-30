@@ -1,5 +1,5 @@
 export default {
-  port: process.env.DB_PORT_SERVER || 8080,
+  portServer: process.env.DB_PORT_SERVER || 8080,
   secretKey: process.env.DB_SECRET_KEY_JWT,
   database: process.env.DB_DATABASE,
   user: process.env.DB_USER,
