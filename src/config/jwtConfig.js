@@ -59,7 +59,10 @@ export const middlewareToken = (req, res, next) => {
 
   let checkToken = verifyToken(token);
 
-  (!checkToken)
-    ? next()
-    : responseData('', 'UnAuthorized', 401, res);
+  if (!checkToken) {
+    res.locals.token = token;
+    next();
+    return;
+  }
+  responseData('', 'UnAuthorized', 401, res);
 }
