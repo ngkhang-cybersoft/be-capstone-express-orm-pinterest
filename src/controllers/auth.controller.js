@@ -29,10 +29,17 @@ export const loginAPI = async (req, res) => {
   }
 
   // Create token
+  // let token = createToken({
+  //   userId: checkEmail.dataValues.user_id,
+  // })
+  // responseData({ token }, 'Login successful.', 200, res);
+  let key = new Date().getTime();
   let token = createToken({
     userId: checkEmail.dataValues.user_id,
-  })
-  responseData({ token }, 'Login successful.', 200, res);
+    fullName: checkEmail.dataValues.full_name,
+    key
+  });
+  responseData(token, 'Login successful.', 200, res);
 }
 
 // Sign Up

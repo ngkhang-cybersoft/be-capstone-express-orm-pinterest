@@ -16,7 +16,7 @@ export const createToken = (data) => {
     secretKey,
     {
       algorithm: 'HS256',
-      expiresIn: '10m',
+      expiresIn: '2 days',
     }
   );
 }
@@ -59,7 +59,7 @@ export const middlewareToken = (req, res, next) => {
 
   let checkToken = verifyToken(token);
 
-  if (checkToken) return responseData('', 'UnAuthorized', 401, res);
-
-  next();
+  (!checkToken)
+    ? next()
+    : responseData('', 'UnAuthorized', 401, res);
 }
