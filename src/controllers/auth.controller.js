@@ -28,23 +28,17 @@ export const loginAPI = async (req, res) => {
     return;
   }
 
-  // Create token
-  // let token = createToken({
-  //   userId: checkEmail.dataValues.user_id,
-  // })
-  // responseData({ token }, 'Login successful.', 200, res);
-  let key = new Date().getTime();
   let token = createToken({
     userId: checkEmail.dataValues.user_id,
     fullName: checkEmail.dataValues.full_name,
-    key
+    key: new Date().getTime(),
   });
   responseData(token, 'Login successful.', 200, res);
 }
 
 // Sign Up
 export const signUpAPI = async (req, res) => {
-  const { email, password, fullName, age } = req.body;
+  const { email, password, fullName, age, avatar } = req.body;
 
   // Check email
   let checkMail = await model.user.findOne({
@@ -63,6 +57,7 @@ export const signUpAPI = async (req, res) => {
     password: hashPass(password),
     full_name: fullName,
     age,
+    avatar,
     role: 'USER',
     refresh_token: '',
   };
@@ -72,7 +67,7 @@ export const signUpAPI = async (req, res) => {
 }
 
 // Change password
-export const changePassword = async (req, res) => {
+export const changePasswordAPI = async (req, res) => {
   const { email, oldPassword, newPassword } = req.body;
 
   // Check email
@@ -89,26 +84,21 @@ export const changePassword = async (req, res) => {
 
   // Compare old and new password
   let isValidOldPassword = comparePass(oldPassword, checkMail.dataValues.password);
-  if (isValidOldPassword) {
-    await model.user.update(
-      {
-        password: hashPass(newPassword),
-      },
-      {
-        where: {
-          email: checkMail.dataValues.email,
-        }
-      }
-    );
-
-    responseData('', 'Change password success', 200, res);
-  }
-  else {
+  if (!isValidOldPassword) {
     responseData('', 'Old password does not match.', 401, res);
+    return;
   }
-}
 
-// Logout
-export const logoutAPI = (req, res) => {
+  await model.user.update(
+    {
+      password: hashPass(newPassword),
+    },
+    {
+      where: {
+        email: checkMail.dataValues.email,
+      }
+    }
+  );
 
+  responseData('', 'Change password success', 200, res);
 }

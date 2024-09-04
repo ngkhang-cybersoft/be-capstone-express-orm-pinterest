@@ -1,18 +1,27 @@
 import express from 'express';
-import authRouter from './auth.router.js';
-import photoRouter from './photo.router.js';
-import commentRouter from './comment.router.js';
-import userRouter from './user.router.js';
+import {
+  authRouter,
+  imageRouter,
+  commentRouter,
+  userRouter,
+  savedRouter
+} from './index.router.js';
 
 const rootRouter = express.Router();
 
 // Auth router
 rootRouter.use('/auth', authRouter);
-// Photo router
-rootRouter.use('/photos', photoRouter)
+
+// Image router
+rootRouter.use('/image', imageRouter);
+
 // Comment router
 rootRouter.use('/comment', commentRouter);
+
 // User router
 rootRouter.use('/user', userRouter);
+
+// Saved router
+rootRouter.use('/saved', savedRouter);
 
 export default rootRouter;

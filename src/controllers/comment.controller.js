@@ -5,7 +5,8 @@ import initModels from '../models/init-models.js';
 
 const model = initModels(sequelize);
 
-export const getCommentOfPhoto = async (req, res) => {
+// Get all comments of image
+export const getCommentsOfImageAPI = async (req, res) => {
   const { imageId } = req.query;
 
   const checkPhoto = await model.image.findOne({
@@ -28,7 +29,8 @@ export const getCommentOfPhoto = async (req, res) => {
   responseData(comments, 'Success', 200, res);
 }
 
-export const postComment = async (req, res) => {
+// Post new comment
+export const postCommentAPI = async (req, res) => {
   const userInfo = decodeToken(req.headers.token);
   const { userId } = userInfo;
 
@@ -55,4 +57,3 @@ export const postComment = async (req, res) => {
   await model.comment.create(newComment);
   responseData('', 'Success', 200, res)
 }
-

@@ -1,0 +1,1379 @@
+{
+	"info": {
+		"_postman_id": "c9850c20-83a5-43a5-8d65-a8bd3e3fc7f3",
+		"name": "Capstone Pinterest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31191982"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"khang02@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}auth/login",
+							"host": [
+								"{{domain}}auth"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"khang02@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}auth/login",
+									"host": [
+										"{{domain}}auth"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "302"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12e-ymG/CeBF4XajocYCt4q6vR4gzWw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:26:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Login successful.\",\n    \"content\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImZ1bGxOYW1lIjoiTmd1eeG7hW4gS2hhbmciLCJrZXkiOjE3MjU0NjM1NjYwNTMsImlhdCI6MTcyNTQ2MzU2NiwiZXhwIjoxNzI1NDgxNTY2fQ.yLI6gICqVGD8v-SM0WjMfRxELSb9T7SVTAKO5e75kQU\",\n    \"date\": \"2024-09-04T15:26:06.056Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Sign Up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user03@gmail.com\",\r\n    \"password\": \"user03\",\r\n    \"fullName\": \"user 03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}auth/sign-up",
+							"host": [
+								"{{domain}}auth"
+							],
+							"path": [
+								"sign-up"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sign Up",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"user03@gmail.com\",\r\n    \"password\": \"user03\",\r\n    \"fullName\": \"user 03\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}auth/sign-up",
+									"host": [
+										"{{domain}}auth"
+									],
+									"path": [
+										"sign-up"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "104"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"68-vUwrgQ2sAw27XFrWDERgFm9mLbE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:38:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 201,\n    \"message\": \"User created successfully.\",\n    \"content\": \"\",\n    \"date\": \"2024-09-04T15:38:44.997Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"user02@gmail.com\",\r\n    \"oldPassword\": \"abc\",\r\n    \"newPassword\": \"user02\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}auth/change-password",
+							"host": [
+								"{{domain}}auth"
+							],
+							"path": [
+								"change-password"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Change Password",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"user02@gmail.com\",\r\n    \"oldPassword\": \"abc\",\r\n    \"newPassword\": \"user02\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}auth/change-password",
+									"host": [
+										"{{domain}}auth"
+									],
+									"path": [
+										"change-password"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "101"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"65-9wjhn4EYEK0SXMQrZ4RdAl95Cjg\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:41:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Change password success\",\n    \"content\": \"\",\n    \"date\": \"2024-09-04T15:41:41.912Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Image",
+			"item": [
+				{
+					"name": "Get all images",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}image/get-all-images",
+							"host": [
+								"{{domain}}image"
+							],
+							"path": [
+								"get-all-images"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all images",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}image/get-all-images",
+									"host": [
+										"{{domain}}image"
+									],
+									"path": [
+										"get-all-images"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "816"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"330-ao8mWtHmpGovjp7X8lRHAuaUrf8\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:20:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Success\",\n    \"content\": [\n        {\n            \"image_id\": 1,\n            \"image_name\": \"sunset\",\n            \"path\": \"/uploads/sunset.jpg\",\n            \"description\": \"Beautiful sunset over the ocean\",\n            \"user_id\": 1\n        },\n        {\n            \"image_id\": 2,\n            \"image_name\": \"mountain\",\n            \"path\": \"/uploads/mountain.png\",\n            \"description\": \"Snow-capped mountain peak\",\n            \"user_id\": 2\n        },\n        {\n            \"image_id\": 3,\n            \"image_name\": \"cat\",\n            \"path\": \"/uploads/cat.jpg\",\n            \"description\": \"Cute tabby cat playing with yarn\",\n            \"user_id\": 1\n        },\n        {\n            \"image_id\": 4,\n            \"image_name\": \"cityscape\",\n            \"path\": \"/uploads/cityscape.jpg\",\n            \"description\": \"Urban skyline at night\",\n            \"user_id\": 2\n        },\n        {\n            \"image_id\": 5,\n            \"image_name\": \"flower\",\n            \"path\": \"/uploads/flower.png\",\n            \"description\": \"Close-up of a red rose\",\n            \"user_id\": 1\n        },\n        {\n            \"image_id\": 7,\n            \"image_name\": \"flower 002\",\n            \"path\": \"/uploads/flower-002.png\",\n            \"description\": \"Close-up of a rose\",\n            \"user_id\": 1\n        }\n    ],\n    \"date\": \"2024-09-04T15:20:43.718Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get list of images by name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}image/get-images-by-name?imageName=cat",
+							"host": [
+								"{{domain}}image"
+							],
+							"path": [
+								"get-images-by-name"
+							],
+							"query": [
+								{
+									"key": "imageName",
+									"value": "cat"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get list of images by name",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}image/get-images-by-name?imageName=cat",
+									"host": [
+										"{{domain}}image"
+									],
+									"path": [
+										"get-images-by-name"
+									],
+									"query": [
+										{
+											"key": "imageName",
+											"value": "cat"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "205"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"cd-y8lD+zJS/I0++ufk3/BAd/rRSjw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:20:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Success\",\n    \"content\": [\n        {\n            \"image_id\": 3,\n            \"image_name\": \"cat\",\n            \"path\": \"/uploads/cat.jpg\",\n            \"description\": \"Cute tabby cat playing with yarn\",\n            \"user_id\": 1\n        }\n    ],\n    \"date\": \"2024-09-04T15:20:48.107Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get image detail by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}image/get-image-detail?imageId=1",
+							"host": [
+								"{{domain}}image"
+							],
+							"path": [
+								"get-image-detail"
+							],
+							"query": [
+								{
+									"key": "imageId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get image detail by id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}image/get-image-detail?imageId=1",
+									"host": [
+										"{{domain}}image"
+									],
+									"path": [
+										"get-image-detail"
+									],
+									"query": [
+										{
+											"key": "imageId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "303"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12f-5TLMQYSLxyyrHfPyLqF2/l5Lk/c\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:20:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Success\",\n    \"content\": {\n        \"image_id\": 1,\n        \"image_name\": \"sunset\",\n        \"path\": \"/uploads/sunset.jpg\",\n        \"description\": \"Beautiful sunset over the ocean\",\n        \"user\": {\n            \"email\": \"khang02@gmail.com\",\n            \"full_name\": \"Nguyễn Khang\",\n            \"age\": 23,\n            \"avatar\": \"/image/my-avatar.png\"\n        }\n    },\n    \"date\": \"2024-09-04T15:20:52.415Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Post new image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imageName\": \"flower 4\",\r\n    \"path\": \"/uploads/flower-45.png\",\r\n    \"description\": \"Close-up of a rose\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}image/post-image",
+							"host": [
+								"{{domain}}image"
+							],
+							"path": [
+								"post-image"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post new photo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"imageName\": \"flower 45\",\r\n    \"path\": \"/uploads/flower-45.png\",\r\n    \"description\": \"Close-up of a rose\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}image/post-image",
+									"host": [
+										"{{domain}}image"
+									],
+									"path": [
+										"post-image"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-p2pBNZQWUysi2eymUJljtcEVxso\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:21:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 201,\n    \"message\": \"Success\",\n    \"content\": \"\",\n    \"date\": \"2024-09-04T15:21:09.070Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete image",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imageId\": 12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}image/delete",
+							"host": [
+								"{{domain}}image"
+							],
+							"path": [
+								"delete"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete photo",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"imageId\": 12\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}image/delete",
+									"host": [
+										"{{domain}}image"
+									],
+									"path": [
+										"delete"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "96"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"60-gBNi20bbpX3SKPom1a4B53dB7JA\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:28:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Deleted successful\",\n    \"content\": \"\",\n    \"date\": \"2024-09-04T15:28:13.811Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Get comments of photo by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}comment/get-comments-of-image?imageId=1",
+							"host": [
+								"{{domain}}comment"
+							],
+							"path": [
+								"get-comments-of-image"
+							],
+							"query": [
+								{
+									"key": "imageId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get comments of photo by Id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}comment/get-comments-of-image?imageId=1",
+									"host": [
+										"{{domain}}comment"
+									],
+									"path": [
+										"get-comments-of-image"
+									],
+									"query": [
+										{
+											"key": "imageId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "455"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c7-aSRcASsmqoRsVGsHNitAf1sGsWM\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:19:51 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Success\",\n    \"content\": [\n        {\n            \"comment_id\": 1,\n            \"comment_date\": \"2024-09-01T10:15:00.000Z\",\n            \"content\": \"Beautiful colors in this sunset!\",\n            \"user_id\": 1,\n            \"image_id\": 1\n        },\n        {\n            \"comment_id\": 6,\n            \"comment_date\": \"2024-09-03T18:30:00.000Z\",\n            \"content\": \"I love the reflection on the water.\",\n            \"user_id\": 2,\n            \"image_id\": 1\n        },\n        {\n            \"comment_id\": 11,\n            \"comment_date\": \"2024-09-03T14:00:41.000Z\",\n            \"content\": \"Test comment\",\n            \"user_id\": 1,\n            \"image_id\": 1\n        }\n    ],\n    \"date\": \"2024-09-04T15:19:51.452Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Post new comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imageId\": 5,\r\n    \"content\": \"Test comment 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}comment/post-comment",
+							"host": [
+								"{{domain}}comment"
+							],
+							"path": [
+								"post-comment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Post new comment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"imageId\": 5,\r\n    \"content\": \"Test comment 2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}comment/post-comment",
+									"host": [
+										"{{domain}}comment"
+									],
+									"path": [
+										"post-comment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-RJqCSlLWmrRm1mt0yjf5UV4SKVE\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:20:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Success\",\n    \"content\": \"\",\n    \"date\": \"2024-09-04T15:20:28.513Z\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get user profile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}user/get-profile",
+							"host": [
+								"{{domain}}user"
+							],
+							"path": [
+								"get-profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get user profile",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}user/get-profile",
+									"host": [
+										"{{domain}}user"
+									],
+									"path": [
+										"get-profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "182"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b6-e1vn9z2Y8sBFKG5TaEtUgoz5Yhs\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:17:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Success\",\n    \"content\": {\n        \"email\": \"khang02@gmail.com\",\n        \"full_name\": \"Nguyễn Khang\",\n        \"age\": 23,\n        \"avatar\": \"/image/my-avatar.png\"\n    },\n    \"date\": \"2024-09-04T15:17:03.612Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update user profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Nguyễn Khang\",\r\n    \"avatar\": \"/image/my-avatar.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}user/update-profile",
+							"host": [
+								"{{domain}}user"
+							],
+							"path": [
+								"update-profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update user profile",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fullName\": \"Nguyễn Khang\",\r\n    \"avatar\": \"/image/my-avatar.png\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}user/update-profile",
+									"host": [
+										"{{domain}}user"
+									],
+									"path": [
+										"update-profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"55-hvplFvKE7dsKvUWKoZb2hbkamR4\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:17:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Success\",\n    \"content\": \"\",\n    \"date\": \"2024-09-04T15:17:43.543Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all comments posted",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}user/get-comments-posted",
+							"host": [
+								"{{domain}}user"
+							],
+							"path": [
+								"get-comments-posted"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all comments posted",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}user/get-comments-posted",
+									"host": [
+										"{{domain}}user"
+									],
+									"path": [
+										"get-comments-posted"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "843"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34b-OPePfjLxtMAda4dPzU1zJJBY7aw\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:17:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Success\",\n    \"content\": [\n        {\n            \"comment_id\": 1,\n            \"comment_date\": \"2024-09-01T10:15:00.000Z\",\n            \"content\": \"Beautiful colors in this sunset!\",\n            \"image_id\": 1\n        },\n        {\n            \"comment_id\": 3,\n            \"comment_date\": \"2024-09-02T09:45:00.000Z\",\n            \"content\": \"What a cute kitty!\",\n            \"image_id\": 3\n        },\n        {\n            \"comment_id\": 5,\n            \"comment_date\": \"2024-09-03T16:00:00.000Z\",\n            \"content\": \"This rose looks so delicate.\",\n            \"image_id\": 5\n        },\n        {\n            \"comment_id\": 7,\n            \"comment_date\": \"2024-09-04T08:00:00.000Z\",\n            \"content\": \"The snow looks pristine!\",\n            \"image_id\": 2\n        },\n        {\n            \"comment_id\": 9,\n            \"comment_date\": \"2024-09-05T20:10:00.000Z\",\n            \"content\": \"Which city is this? It's gorgeous!\",\n            \"image_id\": 4\n        },\n        {\n            \"comment_id\": 11,\n            \"comment_date\": \"2024-09-03T14:00:41.000Z\",\n            \"content\": \"Test comment\",\n            \"image_id\": 1\n        },\n        {\n            \"comment_id\": 12,\n            \"comment_date\": \"2024-09-04T14:24:22.000Z\",\n            \"content\": \"Test comment 2\",\n            \"image_id\": 2\n        }\n    ],\n    \"date\": \"2024-09-04T15:17:54.506Z\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all images posted",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}user/get-images-posted",
+							"host": [
+								"{{domain}}user"
+							],
+							"path": [
+								"get-images-posted"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all images posted",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}user/get-images-posted",
+									"host": [
+										"{{domain}}user"
+									],
+									"path": [
+										"get-images-posted"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "521"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"209-PZMT663ydsL0r/rz13gd7Gj9r/A\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:18:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Success\",\n    \"content\": [\n        {\n            \"image_id\": 1,\n            \"image_name\": \"sunset\",\n            \"path\": \"/uploads/sunset.jpg\",\n            \"description\": \"Beautiful sunset over the ocean\"\n        },\n        {\n            \"image_id\": 3,\n            \"image_name\": \"cat\",\n            \"path\": \"/uploads/cat.jpg\",\n            \"description\": \"Cute tabby cat playing with yarn\"\n        },\n        {\n            \"image_id\": 5,\n            \"image_name\": \"flower\",\n            \"path\": \"/uploads/flower.png\",\n            \"description\": \"Close-up of a red rose\"\n        },\n        {\n            \"image_id\": 7,\n            \"image_name\": \"flower 002\",\n            \"path\": \"/uploads/flower-002.png\",\n            \"description\": \"Close-up of a rose\"\n        }\n    ],\n    \"date\": \"2024-09-04T15:18:02.240Z\"\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Saved",
+			"item": [
+				{
+					"name": "Get all images saved",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain}}saved/get-all-images-saved",
+							"host": [
+								"{{domain}}saved"
+							],
+							"path": [
+								"get-all-images-saved"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all images saved",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{domain}}saved/get-all-images-saved",
+									"host": [
+										"{{domain}}saved"
+									],
+									"path": [
+										"get-all-images-saved"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "975"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3cf-O814XlzcVYNrQiuaZN6RV1sw5Xc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 04 Sep 2024 15:19:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Success\",\n    \"content\": [\n        {\n            \"saved_image_id\": 1,\n            \"save_date\": \"2024-09-01T10:15:00.000Z\",\n            \"image\": {\n                \"image_id\": 1,\n                \"image_name\": \"sunset\",\n                \"path\": \"/uploads/sunset.jpg\",\n                \"description\": \"Beautiful sunset over the ocean\"\n            }\n        },\n        {\n            \"saved_image_id\": 3,\n            \"save_date\": \"2024-09-02T09:45:00.000Z\",\n            \"image\": {\n                \"image_id\": 3,\n                \"image_name\": \"cat\",\n                \"path\": \"/uploads/cat.jpg\",\n                \"description\": \"Cute tabby cat playing with yarn\"\n            }\n        },\n        {\n            \"saved_image_id\": 5,\n            \"save_date\": \"2024-09-03T16:00:00.000Z\",\n            \"image\": {\n                \"image_id\": 5,\n                \"image_name\": \"flower\",\n                \"path\": \"/uploads/flower.png\",\n                \"description\": \"Close-up of a red rose\"\n            }\n        },\n        {\n            \"saved_image_id\": 7,\n            \"save_date\": \"2024-09-04T08:00:00.000Z\",\n            \"image\": {\n                \"image_id\": 2,\n                \"image_name\": \"mountain\",\n                \"path\": \"/uploads/mountain.png\",\n                \"description\": \"Snow-capped mountain peak\"\n            }\n        },\n        {\n            \"saved_image_id\": 8,\n            \"save_date\": \"2024-09-05T20:10:00.000Z\",\n            \"image\": {\n                \"image_id\": 4,\n                \"image_name\": \"cityscape\",\n                \"path\": \"/uploads/cityscape.jpg\",\n                \"description\": \"Urban skyline at night\"\n            }\n        }\n    ],\n    \"date\": \"2024-09-04T15:19:40.277Z\"\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImZ1bGxOYW1lIjoiTmd1eeG7hW4gS2hhbmciLCJrZXkiOjE3MjU0NjM1NjYwNTMsImlhdCI6MTcyNTQ2MzU2NiwiZXhwIjoxNzI1NDgxNTY2fQ.yLI6gICqVGD8v-SM0WjMfRxELSb9T7SVTAKO5e75kQU",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "token",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "http://localhost:8080/",
+			"type": "string"
+		}
+	]
+}

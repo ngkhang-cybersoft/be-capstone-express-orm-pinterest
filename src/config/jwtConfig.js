@@ -16,7 +16,7 @@ export const createToken = (data) => {
     secretKey,
     {
       algorithm: 'HS256',
-      expiresIn: '2 days',
+      expiresIn: '5h',
     }
   );
 }
@@ -66,3 +66,18 @@ export const middlewareToken = (req, res, next) => {
   }
   responseData('', 'UnAuthorized', 401, res);
 }
+
+/**
+* Middleware to decode token.
+*
+* @param {object} req - The Express request object.
+* @param {object} res - The Express response object.
+* @param {funcition} next - The next middleware function.  
+*/
+export const middlewareDecodeToken = (req, res, next) => {
+  const token = res.locals.token;
+  const userInfo = decodeToken(token);
+  const { userId } = userInfo;
+  res.locals.userId = userId;
+  next();
+} 

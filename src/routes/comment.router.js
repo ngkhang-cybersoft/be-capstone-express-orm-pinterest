@@ -1,13 +1,13 @@
 import express from 'express';
-import { getCommentOfPhoto, postComment } from '../controllers/comment.controller.js';
+import { getCommentsOfImageAPI, postCommentAPI } from '../controllers/comment.controller.js';
 import { middlewareToken } from '../config/jwtConfig.js';
 
 const commentRouter = express.Router();
 
-// Get all comment of photo
-commentRouter.get('/get-comment-by-id', getCommentOfPhoto);
+// Get all comments of image
+commentRouter.get('/get-comments-of-image', getCommentsOfImageAPI);
 
 // Post new comment
-commentRouter.post('/post-comment', middlewareToken, postComment);
+commentRouter.post('/post-comment', middlewareToken, postCommentAPI);
 
 export default commentRouter;

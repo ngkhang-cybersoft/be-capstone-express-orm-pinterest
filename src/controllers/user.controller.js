@@ -4,7 +4,8 @@ import responseData from '../config/responseData.js';
 
 const model = initModels(sequelize);
 
-export const getProfileUser = async (req, res) => {
+// Get user profile
+export const getUserProfileAPI = async (req, res) => {
   const userId = res.locals.userId;
 
   let data = await model.user.findOne({
@@ -16,14 +17,22 @@ export const getProfileUser = async (req, res) => {
   responseData(data, 'Success', 200, res);
 }
 
-export const updateProfile = async (req, res) => {
+// Update user profile
+export const updateUserProfileAPI = async (req, res) => {
   const userId = res.locals.userId;
   const { fullName, age, avatar } = req.body;
 
+  const userProfile = await model.user.findOne({
+    where: {
+      user_id: userId,
+    }
+  });
+
+
   let newData = {
-    full_name: fullName,
-    age,
-    avatar,
+    full_name: fullName || userProfile.dataValues.full_name,
+    age: age || userProfile.dataValues.age,
+    avatar: avatar || userProfile.dataValues.avatar,
   }
 
   await model.user.update(newData, {
@@ -35,7 +44,8 @@ export const updateProfile = async (req, res) => {
   responseData('', 'Success', 200, res);
 }
 
-export const getCommentsUser = async (req, res) => {
+// Get all comments posted by user
+export const getCommentsPostedUserAPI = async (req, res) => {
   const userId = res.locals.userId;
   let comments = await model.comment.findAll({
     where: {
@@ -46,34 +56,15 @@ export const getCommentsUser = async (req, res) => {
   responseData(comments, 'Success', 200, res);
 }
 
-export const getListPhotoCreated = async (req, res) => {
+// Get all images posted by a user
+export const getImagesPostedUserAPI = async (req, res) => {
   const userId = res.locals.userId;
 
-  let photoCreated = await model.image.findAll({
+  let imagesPosted = await model.image.findAll({
     where: {
       user_id: userId,
     },
     attributes: ['image_id', 'image_name', 'path', 'description']
   })
-  responseData(photoCreated, 'Success', 200, res);
-}
-
-export const getListPhotoSaved = async (req, res) => {
-  const userId = res.locals.userId;
-
-  let listSavedImage = await model.saved_image.findAll({
-    where: {
-      user_id: userId,
-    },
-    attributes: ['saved_image_id', 'save_date'],
-    include: [
-      {
-        model: model.image,
-        as: 'image',
-        attributes: ['image_id', 'image_name', 'path', 'description']
-      }
-    ]
-  });
-
-  responseData(listSavedImage, 'Success', 200, res);
+  responseData(imagesPosted, 'Success', 200, res);
 }
