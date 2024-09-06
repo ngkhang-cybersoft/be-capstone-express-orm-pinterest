@@ -3,6 +3,7 @@ import sequelize from '../config/connectDb.js';
 import responseData from '../config/responseData.js';
 import { Op } from 'sequelize';
 import { decodeToken } from '../config/jwtConfig.js';
+import { optimizeImage } from '../config/upload.js';
 
 const model = initModels(sequelize);
 
@@ -50,13 +51,20 @@ export const getImageDetailByIdAPI = async (req, res) => {
 
 // Create a new image
 export const postImageAPI = async (req, res) => {
-  const userInfo = decodeToken(req.headers.token);
-  const { userId } = userInfo;
-  const { imageName, path, description } = req.body;
+  const userId = res.locals.userId;
+
+  const { imageName, description } = req.body;
+  const path = req.file;
+  let pathConvert = '';
+
+  if (path) {
+    optimizeImage(path.filename, 'files');
+    pathConvert = `/files/${path.filename}`;
+  }
 
   let newImage = {
     image_name: imageName,
-    path,
+    path: pathConvert,
     description,
     user_id: userId,
   };
@@ -67,9 +75,8 @@ export const postImageAPI = async (req, res) => {
 
 // Delete image
 export const deleteImageAPI = async (req, res) => {
+  const userId = res.locals.userId;
   const { imageId } = req.body;
-  const userInfo = decodeToken(req.headers.token);
-  const { userId } = userInfo;
 
   // Check image is exists or correct user's image
   let checkImage = await model.image.findOne({

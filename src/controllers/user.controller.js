@@ -1,6 +1,7 @@
 import initModels from '../models/init-models.js';
 import sequelize from '../config/connectDb.js';
 import responseData from '../config/responseData.js';
+import { optimizeImage } from '../config/upload.js';
 
 const model = initModels(sequelize);
 
@@ -20,7 +21,14 @@ export const getUserProfileAPI = async (req, res) => {
 // Update user profile
 export const updateUserProfileAPI = async (req, res) => {
   const userId = res.locals.userId;
-  const { fullName, age, avatar } = req.body;
+  const { fullName, age } = req.body;
+  const avatar = req.file;
+  let avatarName = '';
+
+  if (avatar) {
+    optimizeImage(avatar.filename, 'avatars');
+    avatarName = `/avatars/${avatar.filename}`;
+  }
 
   const userProfile = await model.user.findOne({
     where: {
@@ -32,7 +40,7 @@ export const updateUserProfileAPI = async (req, res) => {
   let newData = {
     full_name: fullName || userProfile.dataValues.full_name,
     age: age || userProfile.dataValues.age,
-    avatar: avatar || userProfile.dataValues.avatar,
+    avatar: avatarName || userProfile.dataValues.avatar,
   }
 
   await model.user.update(newData, {
