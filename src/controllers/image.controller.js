@@ -78,19 +78,32 @@ export const deleteImageAPI = async (req, res) => {
   const userId = res.locals.userId;
   const { imageId } = req.body;
 
-  // Check image is exists or correct user's image
-  let checkImage = await model.image.findOne({
-    where: {
-      image_id: imageId,
-      user_id: userId,
+  try {
+    // Check image is exists or correct user's image
+    let checkImage = await model.image.findOne({
+      where: {
+        image_id: imageId,
+        user_id: userId,
+      }
+    });
+
+    if (!checkImage) {
+      responseData('', "You don't own's photo or not found image", 404, res);
+      return;
     }
-  });
 
-  if (!checkImage) {
-    responseData('', "You don't own's photo or not found image", 404, res);
-    return;
+    // Delete related comments
+    await model.comment.destroy({
+      where: {
+        image_id: imageId,
+      }
+    })
+    // Delete image
+    await checkImage.destroy();
+
+    responseData('', 'Deleted successful', 200, res);
+  } catch (error) {
+    console.error('Error deleting image:', error);
+    responseData('', 'An error occurred while deleting the image', 500, res);
   }
-
-  let isDeleted = await checkImage.destroy();
-  if (isDeleted) responseData('', 'Deleted successful', 200, res);
 }
