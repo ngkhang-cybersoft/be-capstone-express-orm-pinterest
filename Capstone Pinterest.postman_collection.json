@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"khang02@gmail.com\",\r\n    \"password\": \"123\"\r\n}",
+							"raw": "{\r\n    \"email\": \"khang02@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -107,7 +107,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"user03@gmail.com\",\r\n    \"password\": \"user03\",\r\n    \"fullName\": \"user 03\"\r\n}",
+							"raw": "{\r\n    \"email\": \"khang02@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"fullName\": \"Nguyen Khang\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -198,7 +198,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"user02@gmail.com\",\r\n    \"oldPassword\": \"abc\",\r\n    \"newPassword\": \"user02\"\r\n}",
+							"raw": "{\r\n    \"email\": \"khang02@gmail.com\",\r\n    \"oldPassword\": \"123\",\r\n    \"newPassword\": \"123456\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -366,7 +366,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}image/get-images-by-name?imageName=cat",
+							"raw": "{{domain}}image/get-images-by-name?imageName=dog",
 							"host": [
 								"{{domain}}image"
 							],
@@ -376,7 +376,7 @@
 							"query": [
 								{
 									"key": "imageName",
-									"value": "cat"
+									"value": "dog"
 								}
 							]
 						}
@@ -463,7 +463,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}image/get-image-detail?imageId=1",
+							"raw": "{{domain}}image/get-image-detail?imageId=2",
 							"host": [
 								"{{domain}}image"
 							],
@@ -473,7 +473,7 @@
 							"query": [
 								{
 									"key": "imageId",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
@@ -557,13 +557,24 @@
 						"method": "POST",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"imageName\": \"flower 4\",\r\n    \"path\": \"/uploads/flower-45.png\",\r\n    \"description\": \"Close-up of a rose\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "imageName",
+									"value": "cat",
+									"type": "text"
+								},
+								{
+									"key": "path",
+									"type": "file",
+									"src": "/C:/Users/Admin/Downloads/test.jpg"
+								},
+								{
+									"key": "description",
+									"value": "cat so cute",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{domain}}image/post-image",
@@ -649,7 +660,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"imageId\": 12\r\n}",
+							"raw": "{\r\n    \"imageId\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -830,7 +841,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"imageId\": 5,\r\n    \"content\": \"Test comment 2\"\r\n}",
+							"raw": "{\r\n    \"imageId\": 3,\r\n    \"content\": \"cat is cute\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -998,13 +1009,24 @@
 						"method": "PUT",
 						"header": [],
 						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"fullName\": \"Nguyễn Khang\",\r\n    \"avatar\": \"/image/my-avatar.png\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/Admin/Downloads/test.jpg"
+								},
+								{
+									"key": "fullName",
+									"value": "Nguyễn Khang",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "23",
+									"type": "text"
 								}
-							}
+							]
 						},
 						"url": {
 							"raw": "{{domain}}user/update-profile",
@@ -1328,6 +1350,97 @@
 							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Success\",\n    \"content\": [\n        {\n            \"saved_image_id\": 1,\n            \"save_date\": \"2024-09-01T10:15:00.000Z\",\n            \"image\": {\n                \"image_id\": 1,\n                \"image_name\": \"sunset\",\n                \"path\": \"/uploads/sunset.jpg\",\n                \"description\": \"Beautiful sunset over the ocean\"\n            }\n        },\n        {\n            \"saved_image_id\": 3,\n            \"save_date\": \"2024-09-02T09:45:00.000Z\",\n            \"image\": {\n                \"image_id\": 3,\n                \"image_name\": \"cat\",\n                \"path\": \"/uploads/cat.jpg\",\n                \"description\": \"Cute tabby cat playing with yarn\"\n            }\n        },\n        {\n            \"saved_image_id\": 5,\n            \"save_date\": \"2024-09-03T16:00:00.000Z\",\n            \"image\": {\n                \"image_id\": 5,\n                \"image_name\": \"flower\",\n                \"path\": \"/uploads/flower.png\",\n                \"description\": \"Close-up of a red rose\"\n            }\n        },\n        {\n            \"saved_image_id\": 7,\n            \"save_date\": \"2024-09-04T08:00:00.000Z\",\n            \"image\": {\n                \"image_id\": 2,\n                \"image_name\": \"mountain\",\n                \"path\": \"/uploads/mountain.png\",\n                \"description\": \"Snow-capped mountain peak\"\n            }\n        },\n        {\n            \"saved_image_id\": 8,\n            \"save_date\": \"2024-09-05T20:10:00.000Z\",\n            \"image\": {\n                \"image_id\": 4,\n                \"image_name\": \"cityscape\",\n                \"path\": \"/uploads/cityscape.jpg\",\n                \"description\": \"Urban skyline at night\"\n            }\n        }\n    ],\n    \"date\": \"2024-09-04T15:19:40.277Z\"\n}"
 						}
 					]
+				},
+				{
+					"name": "Save image",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"imageId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}saved/saved-image",
+							"host": [
+								"{{domain}}saved"
+							],
+							"path": [
+								"saved-image"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Save image",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"imageId\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}saved/saved-image",
+									"host": [
+										"{{domain}}saved"
+									],
+									"path": [
+										"saved-image"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "102"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"66-+rgmrtesmHIi+rid2ZYix+8eLJk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 06 Sep 2024 15:23:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 200,\n    \"message\": \"Save image is successful\",\n    \"content\": \"\",\n    \"date\": \"2024-09-06T15:23:18.221Z\"\n}"
+						}
+					]
 				}
 			]
 		}
@@ -1337,7 +1450,7 @@
 		"apikey": [
 			{
 				"key": "value",
-				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImZ1bGxOYW1lIjoiTmd1eeG7hW4gS2hhbmciLCJrZXkiOjE3MjU0NjM1NjYwNTMsImlhdCI6MTcyNTQ2MzU2NiwiZXhwIjoxNzI1NDgxNTY2fQ.yLI6gICqVGD8v-SM0WjMfRxELSb9T7SVTAKO5e75kQU",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImZ1bGxOYW1lIjoiTmd1eWVuIEtoYW5nIiwia2V5IjoxNzI1NjM1ODIwMTI0LCJpYXQiOjE3MjU2MzU4MjAsImV4cCI6MTcyNTY1MzgyMH0.lQOSX8tb5Ho3ztiXeNsZA2OLp7LxBOtL0CXopMvbKVI",
 				"type": "string"
 			},
 			{

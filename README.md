@@ -38,6 +38,7 @@
 ### Saved
 
 - `GET` - Get all images saved by user: `saved/get-all-images-saved`
+- `PUT` - Save image: `saved/saved-image`
 
 ---
 
